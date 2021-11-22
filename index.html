@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Weather app</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-4 search-bar" id="searchBar">
+            <form id="search-form">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="type a city.."
+                autocomplete="off"
+                id="search-city-input"
+              />
+          </div>
+        </form>
+          <div class="col-6 search-button">
+            <input type="submit" value="search" class="button" />
+          </div>
+        </div>
+        <div class="col-6 current-button">
+          <button
+            class="button-current"
+            id="current-location-button"
+          >
+            location
+          </button>
+      </div>
+        <div class="row display-today">
+          <div class="col picture">
+            <img src="jpg/undraw.svg" width="200" />
+          </div>
+          <div class="col-4 board-today">
+           <div class="city" id="city">Kraków</div>
+          </h1>
+            <div id="dateNow">
+              <div class="date" id="currentDate"></div>
+              <div class="time" id="currentTime"></div>
+            </div>
+          
+            <div class="temperature" id="temperature"></div>
+            <div class="units">°C</div>
+            
+          </div>
+          <div class="col-4 today-parameters">
+            <div class="humidity" >
+              HUMIDITY
+              <br />
+              <p class="value" id="humidity"></p>
+              <p class="humidityValue">%</p>
+            </div>
+              WIND
+              <br />
+            <div class="wind" >
+              <p class="value"id="wind" ></p>
+              <p class="windValue">km/h</p>
+
+            </div>
+            
+          </div>
+        </div>
+        <div class="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="day">Sunday</div>
+              <div class="forecast-temerature">15/2°C</div>
+              <img src="jpg/chill.jpg" width="55" />
+            </div>
+            <div class="col-2">
+              <div class="day">Monday</div>
+              <div class="forecast-temerature">13/5°C</div>
+              <img src="jpg/rain.jpg" width="70" />
+            </div>
+            <div class="col-2">
+              <div class="day">Tuesday</div>
+              <div class="forecast-temerature">21/12°C</div>
+              <img src="jpg/sun.jpg" width="55" />
+            </div>
+            <div class="col-2">
+              <div class="day">Wednesday</div>
+              <div class="forecast-temerature">10/2°C</div>
+              <img src="jpg/cloudy.jpg" width="65" />
+            </div>
+            <div class="col-2">
+              <div class="day">Thursday</div>
+              <div class="forecast-temerature">7/2°C</div>
+              <img src="jpg/storm.jpg" width="55" />
+            </div>
+            <div class="col-2">
+              <div class="day">Friday</div>
+              <div class="forecast-temerature">1/-1°C</div>
+              <img src="jpg/snow.jpg" width="55" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
