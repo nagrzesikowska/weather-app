@@ -7,7 +7,7 @@ function formatDate() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Saturday"
   ];
 
   let months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
@@ -40,8 +40,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
-    document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather.[0].icon}@2x.png`);
-
+  document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather.[0].icon}@2x.png`);
 }
 
 function searchCity(city) {
@@ -72,4 +71,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-searchCity("Kraków");
+searchCity("Cracow");
