@@ -30,6 +30,26 @@ function formatDate() {
 let currentDateandTime = document.querySelector("#dateNow");
 currentDateandTime.innerHTML = formatDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="day">${day}</div>
+              <div class="forecast-temerature">15/2°C</div>
+              <img src="jpg/chill.jpg" width="55" />
+            </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
 function displayWeatherCondition(response) {
   console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
@@ -71,7 +91,7 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
+displayForecast();
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
