@@ -30,23 +30,44 @@ function formatDate() {
 let currentDateandTime = document.querySelector("#dateNow");
 currentDateandTime.innerHTML = formatDate();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Monday", "Tuesday", "Wednesday", "Sunday"];
-
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-2">
-              <div class="day">${day}</div>
-              <div class="forecast-temerature">15/2°C</div>
-              <img src="jpg/chill.jpg" width="55" />
+              <div class="day">${formatDay(forecastDay.dt)}</div>
+              <div class="forecast-temerature">
+              ${Math.round(forecastDay.temp.max)}°C/${Math.round(
+          forecastDay.temp.min
+        )}°C</div>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" width="55" />
           
-        </div>`;
+        </div >`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -105,4 +126,4 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-searchCity("Cracow");
+searchCity("Kraków");
