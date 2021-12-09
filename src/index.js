@@ -59,9 +59,9 @@ function displayForecast(response) {
             <div class="col-2">
               <div class="day">${formatDay(forecastDay.dt)}</div>
               <div class="forecast-temerature">
-              ${Math.round(forecastDay.temp.max)}°C/${Math.round(
+              ${Math.round(forecastDay.temp.max)}°/${Math.round(
           forecastDay.temp.min
-        )}°C</div>
+        )}°</div>
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" width="55" />
